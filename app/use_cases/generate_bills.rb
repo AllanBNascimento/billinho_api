@@ -17,7 +17,7 @@ class GenerateBills
 
   def calculate_first_due_date_to_date
     if enrollment.due_day < Date.today.day
-      (enrollment.due_day.to_s + Date.today.next_month.strftime('/%m/%Y')).to_date
+      (enrollment.due_day.to_s + Date.today.strftime('/%m/%Y')).to_date.next_month
     elsif enrollment.due_day >= Date.today.end_of_month.day
       Date.today.end_of_month
     else
@@ -33,7 +33,7 @@ class GenerateBills
 
   def create_bills(first_due_date, amount, remainder)
     remaning = 1
-    for k in 0..@enrollment.installments-1 do
+    for k in 1..@enrollment.installments do
       if remainder > 0
         remainder -= 1 
       else
