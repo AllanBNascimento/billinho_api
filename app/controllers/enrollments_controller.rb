@@ -1,6 +1,8 @@
 class EnrollmentsController < ApplicationController
   include Paginable
 
+  before_action :authorize, only: [:create]
+
   def index
     @enrollments = Enrollment.page(current_page).per(per_page)
     render json: {

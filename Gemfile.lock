@@ -71,6 +71,7 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    bcrypt (3.1.18)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -92,6 +93,7 @@ GEM
     irb (1.6.1)
       reline (>= 0.3.0)
     jsonapi-renderer (0.2.2)
+    jwt (2.5.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -183,9 +185,11 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.13)
+  bcrypt (~> 3.1.7)
   bootsnap
   cpf_cnpj
   debug
+  jwt
   kaminari (~> 1.2)
   pg (~> 1.1)
   puma (~> 5.0)

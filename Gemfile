@@ -13,6 +13,8 @@ gem "cpf_cnpj"
 gem 'validates_timeliness', '~> 7.0.0.beta1'
 gem "kaminari", "~> 1.2"
 gem "active_model_serializers", "~> 0.10.13"
+gem "bcrypt", "~> 3.1.7"
+gem "jwt"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
