@@ -1,24 +1,37 @@
-# README
+# BILLINHO_API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
+A API vem a cumprir todos os requisitos do teste
 Things you may want to cover:
 
-* Ruby version
+## Requisitos para executar a aplicação
+* Ruby 3.0.0
 
-* System dependencies
+* Rails 7.0.4
 
-* Configuration
+* PostgreSQL 15.1
 
-* Database creation
+## Configuração
 
-* Database initialization
+- Clone o repositório localmente.
 
-* How to run the test suite
+- Entre no repositório pelo console 
 
-* Services (job queues, cache servers, search engines, etc.)
+- Execute:
+  - bundle install
 
-* Deployment instructions
+## Criando o banco de dados
+
+- Agora vamos criar o banco de dados e populá-lo.
+
+- Ainda no repositório, pelo console execute:
+  - rails db:create
+  - rails db:migrate
+  - rails db:seed
 
 * ...
+
+## Instruções para uso:
+
+* Baixe o Insomnia, ou outro framework de sua escolha para realizar as requisições
+
+- Para acessar a rota critica `POST /enrollments` é necessário efetuar o login, este ultimo retornando o token (no headers) que será utillizado para acesso da rota. Ao pegar o toker cole-o em Auth -> Bearer Token e efetue a requisição.
