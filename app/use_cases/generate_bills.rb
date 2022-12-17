@@ -31,7 +31,7 @@ class GenerateBills
   end
 
   def mount_next_month_date
-    @first_due_date = (enrollment.due_day.to_s + Date.today.strftime('/%m/%Y')).to_date.next_month
+    @first_due_date = enrollment_due_date.next_month
   end
 
   def mount_end_of_month_date
@@ -39,7 +39,11 @@ class GenerateBills
   end
 
   def mount_month_date
-    @first_due_date = (enrollment.due_day.to_s + Date.today.strftime('/%m/%Y')).to_date
+    @first_due_date = enrollment_due_date
+  end
+
+  def enrollment_due_date
+    (enrollment.due_day.to_s + Date.today.strftime('/%m/%Y')).to_date
   end
 
   def calculate_bill_amount
@@ -52,18 +56,12 @@ class GenerateBills
 
   def create_bills
     @enrollment.installments.times do |installment|
-      bill_amount = installment < @remainder ? @amount + 1 : @amount
-      due_date = @first_due_date.next_month(installment)
-      create_bill(bill_amount, due_date)
+      Bill.create!(
+        amount: installment < @remainder ? @amount + 1 : @amount, 
+        due_date: @first_due_date.next_month(installment), 
+        status:'open', 
+        enrollment_id:enrollment.id
+      )
     end
-  end
-
-  def create_bill(bill_amount, due_date)
-    Bill.create!(
-      amount: bill_amount, 
-      due_date: due_date, 
-      status:'open', 
-      enrollment_id:enrollment.id
-    )
   end
 end
