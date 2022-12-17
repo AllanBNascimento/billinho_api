@@ -9,6 +9,6 @@ class Enrollment < ApplicationRecord
   after_create :generate_bills
 
   def generate_bills
-    GenerateBills.perform(self)
+    errors.add( :error, "Discarted enrollment because bills not genetared!") unless GenerateBills.perform(self)
   end
 end

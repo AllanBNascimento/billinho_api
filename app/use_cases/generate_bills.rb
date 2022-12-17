@@ -11,7 +11,11 @@ class GenerateBills
     calculate_first_due_date_to_date
     calculate_bill_amount
     calculate_remainder_value
-    create_bills
+    ActiveRecord::Base.transaction do
+      create_bills
+      validate_sum_bills
+      validate_sum_bills_amount
+    end
   end
 
   private
@@ -63,5 +67,13 @@ class GenerateBills
         enrollment_id:enrollment.id
       )
     end
+  end
+
+  def validate_sum_bills
+    enrollment.bills.size == enrollment.installments
+  end
+
+  def validate_sum_bills_amount
+    enrollment.bills.pluck(:amount).sum == enrollment.amount
   end
 end

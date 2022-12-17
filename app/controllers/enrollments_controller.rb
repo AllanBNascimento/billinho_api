@@ -29,7 +29,8 @@ class EnrollmentsController < ApplicationController
 
   def create
     @enrollment = Enrollment.new(enrollment_params)
-    if @enrollment.save
+    @enrollment.save
+    if @enrollment.errors.empty?
       render json: @enrollment, status: :created
     else
       render json: { data: @enrollment.errors }, status: :unprocessable_entity
