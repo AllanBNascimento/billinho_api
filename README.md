@@ -57,7 +57,7 @@
 
   - Ainda no repositório, pelo console execute:
     
-    `docker exec billinho_api bash`
+    `docker compose exec billinho_api bash`
 
   - Dentro do bash execute:
     
