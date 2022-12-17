@@ -22,7 +22,7 @@
     - Possibilita verificar se um CPF ou CNPJ é válido.
 
   - validates_timeliness
-    - Utilizado para verificar se a data era anterior a data corrente e validar que era do tipo data.
+    - Utilizado para verificar se a data era anterior a data corrente e validar que era do tipo `Date`.
 
   - active_model_serializers
     - Ajudou a modelar as saidas JSON
@@ -94,7 +94,14 @@
         {
           "page": 1,
           "count": 3
-        }        
+        }  
+
+  - http://localhost:3000/bills
+
+        {
+          "page": 1,
+          "count": 3
+        }  
 
   ### Requisições POST
 

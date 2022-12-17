@@ -1,8 +1,14 @@
 class BillsController < ApplicationController
+  include Paginable
 
   def index
-    @bills = Bill.all
-    render json: @bills
+    @bills = Bill.page(current_page).per(per_page)
+    render json: {
+      page: current_page,
+      items: @bills.as_json(
+        except: [:created_at, :updated_at]
+      )
+    }
   end
 
   def show
