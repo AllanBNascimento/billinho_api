@@ -31,7 +31,7 @@
     - Faz a encriptação da senha do User e quando tentado acessar pelo console aparece [FILTERED].
 
   - jwt
-    - Faz a geração e autenticação dos token para validar se o User está logado.
+    - Gera um token ao ser realizado o login.
 
   ## Requisitos para executar a aplicação
 
