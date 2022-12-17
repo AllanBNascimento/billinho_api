@@ -151,7 +151,7 @@
           "password": "your_password"
         }
 
-  -GET 
+  - GET
   - Esta rota é para ver exatamente o objeto que deseja a partir do `id`, basta colocar o modelo e o id dele como nos exemplos:
 
   - http://127.0.0.1:3000/bills/3
