@@ -96,13 +96,6 @@
           "count": 3
         }  
 
-  - http://localhost:3000/bills
-
-        {
-          "page": 1,
-          "count": 3
-        }  
-
   ### Requisições POST
 
   - http://localhost:3000/students
@@ -132,3 +125,36 @@
           "due_day": 5,
           "student_id": 1
         }
+
+  ### Requisições Adicionais
+  - GET
+  - http://localhost:3000/bills
+
+        {
+          "page": 1,
+          "count": 3
+        }  
+
+  - GET
+  - http://localhost:3000/users
+
+        {
+          "page": 1,
+          "count": 3
+        }  
+  
+  - POST
+  - http://127.0.0.1:3000/users
+
+        {
+          "username": "your_username",
+          "password": "your_password"
+        }
+
+  -GET 
+  - Esta rota é para ver exatamente o objeto que deseja a partir do `id`, basta colocar o modelo e o id dele como nos exemplos:
+
+  - http://127.0.0.1:3000/bills/3
+  - http://127.0.0.1:3000/students/2
+  - http://127.0.0.1:3000/enrollments/1
+  - http://127.0.0.1:3000/users/1

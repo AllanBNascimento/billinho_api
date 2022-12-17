@@ -2,8 +2,7 @@
 
 Rails.application.routes.draw do
 
-  resources :students, :enrollments, :bills
-  resource :users, only: [:create]
+  resources :students, :enrollments, :bills, :users
   post "/login", to: "users#login"
 
 end
