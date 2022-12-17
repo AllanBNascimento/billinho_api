@@ -30,14 +30,7 @@ class EnrollmentsController < ApplicationController
   def create
     @enrollment = Enrollment.new(enrollment_params)
     if @enrollment.save
-      render json: @enrollment.to_json(
-        :except => [:created_at, :updated_at],
-        :include => { 
-          :bills => { 
-            :except => [:created_at, :updated_at, :enrollment_id]
-          }
-        }
-      ), status: :created
+      render json: @enrollment, status: :created
     else
       render json: { data: @enrollment.errors }, status: :unprocessable_entity
     end
